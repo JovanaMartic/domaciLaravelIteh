@@ -16,8 +16,8 @@ use App\Http\Controllers\KorisnikController;
 |
 */
 
-Route::resource('banke', BankaController::class);
-Route::resource('korisnici', KorisnikController::class);
+Route::resource('banke', BankaController::class)->only('index', 'show', 'destroy');
+Route::resource('korisnici', KorisnikController::class)->only('index', 'show', 'update');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

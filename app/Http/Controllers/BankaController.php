@@ -14,7 +14,9 @@ class BankaController extends Controller
      */
     public function index()
     {
-        //
+        $banke = Banka::all();
+
+        return response()->json($banke);
     }
 
     /**
@@ -44,9 +46,9 @@ class BankaController extends Controller
      * @param  \App\Models\Banka  $banka
      * @return \Illuminate\Http\Response
      */
-    public function show(Banka $banka)
+    public function show($banka)
     {
-        //
+        return response()->json(Banka::find($banka));
     }
 
     /**
@@ -78,8 +80,9 @@ class BankaController extends Controller
      * @param  \App\Models\Banka  $banka
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banka $banka)
+    public function destroy($banka)
     {
-        //
+        $banka = Banka::find($banka)->delete();
+        return response()->json('Banka je obrisana!');
     }
 }
